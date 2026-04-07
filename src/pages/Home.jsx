@@ -1,5 +1,6 @@
 
 const Home = () => {
+  console.log("home rendering ...")
   return (
     <div>
       Home
