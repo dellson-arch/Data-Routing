@@ -20,10 +20,12 @@ const Login = () => {
 
     if(!user){
       toast.error("user not found")
+      reset()
       return
     }
     setLoginUser(user)// user ek baar me ek hi login hoga isliye mai isme koi copy wagera nahi karunga seedha daal dunga user
     localStorage.setItem("Logged user-->" , JSON.stringify(user))
+    navigate('/dashboard')
     console.log("Form Data:", data);
     toast.success('user logged in')
     reset();  

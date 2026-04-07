@@ -112,7 +112,7 @@ const Register = () => {
 
         <p className="mt-8 text-center text-sm text-gray-300/80">
           Already have an account?{' '}
-          <a onClick={()=> navigate('/login')} className="font-bold text-white hover:text-white/80 transition-colors underline-offset-4 hover:underline ">
+          <a onClick={()=> navigate('/')} className="font-bold text-white hover:text-white/80 transition-colors underline-offset-4 hover:underline ">
             Log in
           </a>
         </p>

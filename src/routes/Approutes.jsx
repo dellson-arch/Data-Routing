@@ -7,12 +7,18 @@ import MainLayout from "../layouts/MainLayout";
 import AuthLayout from "../layouts/AuthLayout";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import ProtectedDashboard from "./ProtectedDashboard";
+import AuthProtected from "./AuthProtected";
 const Approutes = () => {
   let router = createBrowserRouter([
     {
-      path: "/",
-      element: <MainLayout />,
-      children: [
+      path: "/dashboard",
+      element : <ProtectedDashboard/>, //idhar hum likhenege ki agar user logged in ho toh MainLayout me bhejna
+      children : [
+      {
+        path : "",
+        element: <MainLayout />,
+        children: [
         {
           path: "",
           element: <Home/>
@@ -26,18 +32,26 @@ const Approutes = () => {
           element: <Contact />,
         },
       ],
+      }
+    ]
     },
     {
       path:'/',
-      element: <AuthLayout/>,
-      children:[
+      element : <AuthProtected/>,
+      children : [
         {
-          path:"login", // This makes Login show up at exactly "/auth"
+          path: "",
+          element: <AuthLayout/>,
+          children:[
+        {
+          path:"", // This makes Login show up at exactly "/auth"
           element:<Login/>
         },
         {
           path:"register",
           element:<Register/>
+        }
+      ]
         }
       ]
     }
