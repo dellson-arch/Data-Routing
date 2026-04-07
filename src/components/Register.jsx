@@ -1,15 +1,14 @@
-import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Navigate, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
-import { Auth } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 
 const Register = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm({
     mode : 'onChange'
   });
 
-   const{setRegisteredUser , registeredUser} = useContext(Auth)
+   const{setRegisteredUser , registeredUser} = useAuth()
 
    const navigate = useNavigate()
   

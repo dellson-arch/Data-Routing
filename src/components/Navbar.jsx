@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
 import { NavLink, useLocation } from "react-router";
-import { Auth } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const { pathname } = useLocation();
-  const { setLoginUser } = useContext(Auth);
+  const { setLoginUser } = useAuth();
 
   return (
     <div className="flex flex-col h-screen w-64 px-4 py-8 justify-between border-r border-gray-500 bg-white">

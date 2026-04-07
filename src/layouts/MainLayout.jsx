@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import { Outlet } from 'react-router'
 
 const MainLayout = () => {
+  console.log("main Layout rendering ...")
   return (
     <div className="flex h-screen w-full overflow-hidden">
       <Navbar />

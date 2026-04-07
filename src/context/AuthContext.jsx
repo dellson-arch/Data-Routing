@@ -1,6 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
-export let Auth = createContext()
+let Auth = createContext()
 
 export let AuthProvider = ({children})=>{
     const[registeredUser , setRegisteredUser] = useState(
@@ -14,3 +14,5 @@ export let AuthProvider = ({children})=>{
     {children}
    </Auth.Provider>
 }
+
+export let useAuth = ()=> useContext(Auth) //idhar basicallyhum ek hook bana dete hain taki hume har jagah useContext kar kar ke cheeze na karni pade . ab isme har context se data hum kaise le sakte hai using useContext. unecessry load ko reduce karne ke liye
