@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { NavLink, useNavigate } from 'react-router';
-import { Auth } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 import { toast } from 'react-toastify';
 
 const Login = () => {
@@ -11,7 +10,7 @@ const Login = () => {
 
    const navigate = useNavigate()
 
-   const{ registeredUser , setLoginUser} = useContext(Auth)
+   const{ registeredUser , setLoginUser} = useAuth()
 
   const handleFormSubmit = (data) => {
     const user = registeredUser.find(

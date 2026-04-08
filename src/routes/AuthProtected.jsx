@@ -1,11 +1,10 @@
-import React, { useContext } from 'react'
 import { Navigate, Outlet } from 'react-router'
-import { Auth } from '../context/AuthContext'
+import { useAuth } from '../context/AuthContext'
 
 const AuthProtected = () => {
 
   //idhar mere ko logic likhna hai ki agar user logged in hoga toh mere paas toh tu nii aayega 
-  const{LoginUser} = useContext(Auth)
+  const{LoginUser} = useAuth()
   
   if(LoginUser){
     return <Navigate to={'/dashboard'}/>

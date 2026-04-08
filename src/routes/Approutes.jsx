@@ -9,6 +9,8 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import ProtectedDashboard from "./ProtectedDashboard";
 import AuthProtected from "./AuthProtected";
+import { getAllProducts } from "../api/ProductApi";
+import ProductDetails from "../pages/ProductDetails";
 const Approutes = () => {
   let router = createBrowserRouter([
     {
@@ -21,6 +23,11 @@ const Approutes = () => {
         children: [
         {
           path: "",
+          loader : async()=>{
+            let data =  await getAllProducts() //ab api hitt sabse pehle hogi
+            return data
+          },
+          hydrateFallbackElement : <h1>Loading Products....</h1>,
           element: <Home/>
         },
         {
@@ -30,6 +37,10 @@ const Approutes = () => {
         {
           path: "contact",
           element: <Contact />,
+        },
+        {
+          path: "product/detail/:id",
+          element: <ProductDetails />,
         },
       ],
       }
