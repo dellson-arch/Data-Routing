@@ -10,6 +10,7 @@ import Register from "../components/Register";
 import ProtectedDashboard from "./ProtectedDashboard";
 import AuthProtected from "./AuthProtected";
 import { getAllProducts } from "../api/ProductApi";
+import ProductDetails from "../pages/ProductDetails";
 const Approutes = () => {
   let router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const Approutes = () => {
         {
           path: "contact",
           element: <Contact />,
+        },
+        {
+          path: "product/detail/:id",
+          element: <ProductDetails />,
         },
       ],
       }

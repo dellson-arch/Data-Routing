@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router"
+import ProductCard from "../components/ProductCard"
 
 const Home = () => {
   console.log("home rendering ...")
@@ -7,9 +8,13 @@ const Home = () => {
   console.log("products jo home me aa chuke hai -->" , products)
 
   return (
-    <div>
-      Home
-    </div>
+   <div className="flex flex-wrap gap-6 justify-start">
+    {
+      products.map((val)=>{
+        return <ProductCard key={val.id} product={val}/>
+      })
+    }
+</div>
   )
 }
 

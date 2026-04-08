@@ -1,8 +1,8 @@
-import axios from "axios"
+import { axiosInstance } from "../config/AxiosInstance"
 
   export let getAllProducts = async()=>{
      try {
-      let res = await axios.get('https://dummyjson.com/products')
+      let res = await axiosInstance.get('/products') //https://dummyjson.com --> baseURL , products --> endPoint of the API
       console.log("api hitted")
     //   console.log(res)
       return res.data.products
